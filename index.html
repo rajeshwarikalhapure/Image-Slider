@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+    <style>
+        .gallery-img{
+            width: 450px;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+
+        }
+        .btn-container{
+            justify-content: center;
+            position: relative;
+            width: fit-content;
+            margin: 10px auto;
+
+        }
+        .btn{
+            height: 50px;
+            margin: 0 10px;
+            position: absolute;
+            cursor: pointer;
+            /* background-color: white; */
+            border-radius: 50%;
+            top: 90px;
+
+        }
+        .btn-left{
+            left: -40px;
+        }
+        .btn-right{
+            right: -40px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="btn-container">
+    <img src="./images/one.png" class="gallery-img" id="img"/>
+    <img src="./images/left-chevron.png" class="btn btn-left" onclick="prev()"/>
+    <img src="./images/right-chevron.png" class="btn  btn-right" onclick="next()"/>
+</div>
+    <script>
+        
+        const imagesArr=[
+            "./images/zero.png",
+            "./images/one.png",
+            "./images/two.png",
+            "./images/three.png",
+            "./images/four.png",
+            "./images/five.png",
+            "./images/six.png",
+            "./images/seven.png",
+            "./images/eight.png",
+    ];
+    let imgIndex=0;
+
+    function prev(){
+        if(imgIndex==0){
+            imgIndex = imagesArr.length - 1;
+        }
+        else{
+            imgIndex--;
+        }
+
+        const imgElement = document.getElementById('img');
+        imgElement.src=imagesArr[imgIndex]
+    }
+    function next(){
+       
+        if(imgIndex <imagesArr.length-1){
+            imgIndex++;
+        }
+        const imgElement=document.getElementById('img');
+        imgElement.src=imagesArr[imgIndex]
+    }
+
+   
+    </script>
+</body>
+</html>
